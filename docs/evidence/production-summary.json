@@ -1,0 +1,29 @@
+{
+  "kind": "historical-production-receipt-summary",
+  "date": "2026-10-03",
+  "scope": "Verified original delivery, not a claim that every fresh clone recreates identical encoded bytes.",
+  "width": 3840,
+  "height": 1920,
+  "fps": 30,
+  "durationSeconds": 240,
+  "frames": 7200,
+  "deliverySha256": "95670a181c30c46eb831e4e584259971c54b4cde9ef11c34e68a0034fcaf5fd0",
+  "deliveryBytes": 2378818909,
+  "unmodifiedPacketCount": 5910,
+  "unmodifiedPacketsMatchCanonical01": true,
+  "joinTimesSeconds": [
+    44,
+    58,
+    65,
+    74,
+    82,
+    96,
+    102
+  ],
+  "joinRgbFramesChecked": 21,
+  "fullyDecodedVideoFrames": 7200,
+  "audioDecodedSampleFrames": 11519936,
+  "audioDecodedDuration": 239.99866666666668,
+  "audioEncodingCount": 1,
+  "note": "Full master MP4 and raw per-frame caches are not bundled. Sources, accepted still comparisons and reproducible pipeline are published separately."
+}

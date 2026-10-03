@@ -1,0 +1,25 @@
+{
+  "name": "grain-film",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "《一粒 / GRAIN》：Three.js 与 WebAudio 生成的四分钟短片源码",
+  "scripts": {
+    "serve": "node tools/serve.mjs",
+    "still": "node tools/still.mjs",
+    "bench": "node tools/bench.mjs",
+    "render": "node tools/render.mjs",
+    "preview": "node tools/render.mjs --start 65 --end 66 --scale 1 --crop 1920:960:0:60 --samples 8 --preset veryfast --out out/preview.mp4",
+    "build": "node tools/build-html.mjs",
+    "check": "node tools/check.mjs && node tools/check-server.mjs"
+  },
+  "dependencies": {
+    "esbuild": "^0.28.2",
+    "puppeteer-core": "^25.12.0",
+    "three": "^0.186.1",
+    "ws": "^8.22.0"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

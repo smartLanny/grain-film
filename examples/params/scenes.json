@@ -1,0 +1,5 @@
+{
+  "S06":{"name":"S06","start":44,"end":58,"shot_start":44,"preroll_seconds":0,"scale":2,"samples":8,"passes":1,"profile":"standard","intensity":1,"detail":3,"colour":1.5,"white_transition_protection":{"start":44,"hold_until":44.5,"nr_from":46}},
+  "S10":{"name":"S10","start":82,"end":96,"shot_start":82,"preroll_seconds":0,"scale":2,"samples":8,"passes":1,"profile":"standard","intensity":1,"detail":1.8,"colour":1.1},
+  "S11":{"name":"S11","start":96,"end":102,"shot_start":96,"preroll_seconds":0,"scale":2,"samples":8,"passes":2,"profile":"standard","intensity":1,"detail":1,"colour":1}
+}

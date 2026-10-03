@@ -1,0 +1,12 @@
+MLX PNG sequence adapter for GRAIN
+Copyright 2026 GRAIN contributors.
+
+The thin sequence adapter added by this patch is offered under Apache-2.0.
+It targets iamwavecut/MLX-DLSS at public commit
+0ca2deab092fe6f3e331bf4f616271dbc64521d0 (Apache-2.0).
+Upstream patch context is copyright its respective authors. Keep the
+upstream LICENSE and NOTICE in your separate checkout.
+
+No MLX-DLSS model implementation, model weights, DLL, extractor, or
+disassembly is distributed in GRAIN. This patch only connects existing
+public image I/O, renderer, and flow APIs to a sequential CLI command.

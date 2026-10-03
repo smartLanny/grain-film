@@ -1,0 +1,288 @@
+{
+  "kind": "fresh-public-source-plus-original-patch-smoke",
+  "date": "2026-10-04",
+  "public_upstream_commit": "0ca2deab092fe6f3e331bf4f616271dbc64521d0",
+  "local_historical_commit_not_public": "d1b9978205cbbacaf3431e5a4a9bc181d0fa6da7",
+  "patch_sha256": "12db47a2083b630d15966c92447340f3b28dbdec3f1a00916ae3d7dc0520748a",
+  "patch_added_lines": 59,
+  "patch_files": [
+    "Sources/DLSSMedia/NativeMediaProcessor.swift",
+    "Sources/mlxdlss/ProcessPNGSequenceCommand.swift",
+    "Sources/mlxdlss/main.swift"
+  ],
+  "public_base_git_apply_check": true,
+  "swift_build_seconds": 82.68,
+  "forced_adapter_targets_recompile_seconds": 7.23,
+  "forced_compiled_modules": [
+    "DLSSMedia",
+    "mlxdlss"
+  ],
+  "compiler_input_file_lists_confirmed": [
+    "NativeMediaProcessor.swift",
+    "ProcessPNGSequenceCommand.swift",
+    "main.swift"
+  ],
+  "build_cache_note": "Local COW build cache reused for speed; public-base source was archived independently, adapter targets were forced to recompile, and tested binary hash differs from historical private CLI. No cache/vendor/binary is distributed.",
+  "test_hardware": "Apple M5 Max, macOS27, Xcode27 beta",
+  "binary_sha256": "e48df45abb1b95d0669d8d454fcf2e57b061fd7dc30329dffb1cb5be758213f2",
+  "tests": [
+    {
+      "case": "one",
+      "source": "fresh paired capture from current published film source",
+      "absolute_frames": [
+        1500,
+        1501,
+        1502
+      ],
+      "viewport": [
+        320,
+        180
+      ],
+      "picture_crop": [
+        0,
+        10,
+        320,
+        160
+      ],
+      "samples": 1,
+      "NR_profile": "standard",
+      "intensity": 1,
+      "detail": 1.8,
+      "colour": 1.1,
+      "processing_scale": 1,
+      "precision": "float16",
+      "temporal": true,
+      "motion": "automatic",
+      "passes": [
+        {
+          "input_frames": 3,
+          "output_frames": 3,
+          "elapsed_seconds": 7.723975792,
+          "scene_resets": 0,
+          "motion_backend": "videotoolbox",
+          "independent_process_history_flow": true
+        }
+      ],
+      "grain_restored_once_after_final_pass": true,
+      "validation": [
+        {
+          "kind": "original",
+          "width": 320,
+          "height": 160,
+          "fps": "30/1",
+          "frames": 3,
+          "time_base": "1/15360",
+          "codec": "hvc1",
+          "colour": [
+            "bt709",
+            "bt709",
+            "bt709",
+            "tv"
+          ],
+          "PTS_verified": true,
+          "true_IDR_frames": [
+            0
+          ],
+          "full_decode_ok": true,
+          "video_sha256": "05769b53f370e90060be9bf7a03190c3365a4db890c4194a08c27bda833945e0",
+          "extradata_sha256": "SHA256:58302b7949173ff53a4022dbe077aef08a35b25722f4105a734a7a43bb934a08"
+        },
+        {
+          "kind": "enhanced",
+          "width": 320,
+          "height": 160,
+          "fps": "30/1",
+          "frames": 3,
+          "time_base": "1/15360",
+          "codec": "hvc1",
+          "colour": [
+            "bt709",
+            "bt709",
+            "bt709",
+            "tv"
+          ],
+          "PTS_verified": true,
+          "true_IDR_frames": [
+            0
+          ],
+          "full_decode_ok": true,
+          "video_sha256": "ee0f2a006a062c1cf1db32b313e2f0d9752a5f07dafb5277fe4b5349f1ae87a4",
+          "extradata_sha256": "SHA256:58302b7949173ff53a4022dbe077aef08a35b25722f4105a734a7a43bb934a08"
+        }
+      ]
+    },
+    {
+      "case": "two",
+      "source": "fresh paired capture from current published film source",
+      "absolute_frames": [
+        1500,
+        1501,
+        1502
+      ],
+      "viewport": [
+        320,
+        180
+      ],
+      "picture_crop": [
+        0,
+        10,
+        320,
+        160
+      ],
+      "samples": 1,
+      "NR_profile": "standard",
+      "intensity": 1,
+      "detail": 1.8,
+      "colour": 1.1,
+      "processing_scale": 1,
+      "precision": "float16",
+      "temporal": true,
+      "motion": "automatic",
+      "passes": [
+        {
+          "input_frames": 3,
+          "output_frames": 3,
+          "elapsed_seconds": 0.689961584,
+          "scene_resets": 0,
+          "motion_backend": "videotoolbox",
+          "independent_process_history_flow": true
+        },
+        {
+          "input_frames": 3,
+          "output_frames": 3,
+          "elapsed_seconds": 0.687552084,
+          "scene_resets": 0,
+          "motion_backend": "videotoolbox",
+          "independent_process_history_flow": true
+        }
+      ],
+      "grain_restored_once_after_final_pass": true,
+      "validation": [
+        {
+          "kind": "original",
+          "width": 320,
+          "height": 160,
+          "fps": "30/1",
+          "frames": 3,
+          "time_base": "1/15360",
+          "codec": "hvc1",
+          "colour": [
+            "bt709",
+            "bt709",
+            "bt709",
+            "tv"
+          ],
+          "PTS_verified": true,
+          "true_IDR_frames": [
+            0
+          ],
+          "full_decode_ok": true,
+          "video_sha256": "1a6353a65068e6055f0856b7bd3d2174389708daaaa2c5c386c85e235031a8be",
+          "extradata_sha256": "SHA256:58302b7949173ff53a4022dbe077aef08a35b25722f4105a734a7a43bb934a08"
+        },
+        {
+          "kind": "enhanced",
+          "width": 320,
+          "height": 160,
+          "fps": "30/1",
+          "frames": 3,
+          "time_base": "1/15360",
+          "codec": "hvc1",
+          "colour": [
+            "bt709",
+            "bt709",
+            "bt709",
+            "tv"
+          ],
+          "PTS_verified": true,
+          "true_IDR_frames": [
+            0
+          ],
+          "full_decode_ok": true,
+          "video_sha256": "77db7c49d67222f2e10d211184c739e5f515072f2e782feed4f9ae3764d23097",
+          "extradata_sha256": "SHA256:58302b7949173ff53a4022dbe077aef08a35b25722f4105a734a7a43bb934a08"
+        }
+      ]
+    }
+  ],
+  "public_model_files_distributed": false,
+  "bypass": {
+    "inputFrames": 1,
+    "outputFrames": 1,
+    "max8bit": 0,
+    "mae8bit": 0.0
+  },
+  "grain_control": [
+    {
+      "frame": 1500,
+      "max8bit": 1,
+      "mae8bit": 0.2506380208333333
+    },
+    {
+      "frame": 1501,
+      "max8bit": 1,
+      "mae8bit": 0.24942057291666667
+    },
+    {
+      "frame": 1502,
+      "max8bit": 1,
+      "mae8bit": 0.24902994791666666
+    }
+  ],
+  "refusals": [
+    {
+      "case": "existing_output",
+      "rejected": true
+    },
+    {
+      "case": "unsupported_range",
+      "rejected": true
+    }
+  ],
+  "pipeline_checks": [
+    {
+      "case": "existing full work output refused",
+      "rejected": true
+    },
+    {
+      "case": "existing full work output refused",
+      "rejected": true
+    },
+    {
+      "case": "preroll across shot boundary refused before writes",
+      "rejected": true
+    },
+    {
+      "case": "fresh4k baseline vs accepted4k NR hvcC",
+      "equal": true,
+      "hash": "SHA256:a608147ef72de3d850a26276492e43506bc5b5b1de5c7f5c9ea3b65e6ba811eb"
+    }
+  ],
+  "encoder_boundary_control": {
+    "frames": 63,
+    "width": 320,
+    "height": 160,
+    "IDRs": [
+      {
+        "frame": 0,
+        "nal_types": [
+          20
+        ]
+      },
+      {
+        "frame": 60,
+        "nal_types": [
+          20
+        ]
+      }
+    ],
+    "PTS_verified": true,
+    "full_decode_ok": true,
+    "note": "Repeated existing PNGs, timing/header control only; not an NR motion-quality test."
+  },
+  "scope_limits": [
+    "9 actual small-resolution NR input frames, no full-film inference.",
+    "S06 white transition protection is historical validated behavior and published config; this fresh smoke at50s does not independently revalidate the44s transition.",
+    "Fresh-clone outputs are not claimed byte-identical to the original delivery."
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "cpuMockCommand": "node tools/check-sink.mjs",
+  "cpuMockPassed": true,
+  "cases": [
+    {
+      "case": "missing-wav",
+      "returnCode": 2,
+      "seconds": 0.0722744578961283,
+      "failedBeforeBrowser": true
+    },
+    {
+      "case": "directory-wav",
+      "returnCode": 2,
+      "seconds": 0.06922937487252057,
+      "failedBeforeBrowser": true
+    },
+    {
+      "case": "valid-3-frame-audio",
+      "returnCode": 0,
+      "seconds": 2.1286078749690205,
+      "fullShortDecodePassed": true,
+      "streams": [
+        {
+          "codec_name": "hevc",
+          "width": 3840,
+          "height": 1920,
+          "nb_frames": "3",
+          "duration": "0.100000"
+        },
+        {
+          "codec_name": "aac",
+          "nb_frames": "8",
+          "duration": "0.107000",
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ]
+    }
+  ],
+  "changedSourceSha256": {
+    "src/main.js": "f3cc30af5b0f3a599d9dcd2521b4629baa41af0444b2b1852e291034230f9214",
+    "tools/render.mjs": "0abe4d65f02954fb0377ea4f47fc14e0cbffde8a616235360d895c9c50791572",
+    "tools/check-sink.mjs": "b189ae60151be5c919c99806df574512c6e793a7c8b725126807c036d681ac83"
+  },
+  "scope": "Explicit WAV input validation, ACK close/error rejection and connect rejection only; no shader/world/audio algorithm changes."
+}

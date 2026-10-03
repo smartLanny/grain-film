@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>film</title>
+<link rel="icon" href="data:,">
+<style>
+  :root { color-scheme: dark; }
+  html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
+  body { display: grid; place-items: center; cursor: default; }
+  #film {
+    display: block; background: #000;
+    width: 100vw; height: 56.25vw; max-height: 100vh; max-width: 177.7778vh;
+  }
+  body.offline #film { width: 480px; height: 270px; }
+  #overlay {
+    position: fixed; inset: 0; display: grid; place-items: center; background: #000;
+    font: 400 13px/1.4 "Hoefler Text", "Baskerville", Georgia, serif; letter-spacing: 0.35em;
+    text-transform: uppercase; color: #9a948a; transition: opacity 1.2s ease; user-select: none;
+  }
+  #overlay.ready { cursor: pointer; color: #e8e2d6; }
+  #overlay.hidden { opacity: 0; pointer-events: none; }
+  #overlay .box { display: grid; gap: 18px; justify-items: center; }
+  #overlay .track { width: 180px; height: 1px; background: #2a2825; overflow: hidden; }
+  #overlay #bar { width: 100%; height: 100%; background: #c9c2b4; transform-origin: 0 50%; transform: scaleX(0); transition: transform 0.2s linear; }
+  #overlay.ready .track { opacity: 0; transition: opacity 0.6s; }
+  #hud {
+    position: fixed; left: 12px; top: 10px; display: none; color: #cfc8bb; mix-blend-mode: difference;
+    font: 12px/1.3 ui-monospace, Menlo, monospace; pointer-events: none; white-space: pre;
+  }
+  body.offline #overlay, body.offline #hud { display: none; }
+</style>
+<script type="importmap">
+  { "imports": { "three": "./node_modules/three/build/three.module.js" } }
+</script>
+</head>
+<body>
+  <canvas id="film"></canvas>
+  <div id="overlay"><div class="box"><div id="status">preparing</div><div class="track"><div id="bar"></div></div></div></div>
+  <div id="hud"></div>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

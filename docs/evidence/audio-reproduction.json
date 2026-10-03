@@ -1,0 +1,39 @@
+{
+  "window": [
+    65,
+    78
+  ],
+  "fadeSeconds": 0.2,
+  "outsidePcmBytesIdentical": true,
+  "outsidePcmSha256Baseline": "f5d27a47af83aeaa227de2ab7d3d16edc05aceff157412d4a198c87227b7e7e6",
+  "outsidePcmSha256Patched": "f5d27a47af83aeaa227de2ab7d3d16edc05aceff157412d4a198c87227b7e7e6",
+  "frames": 11520000,
+  "duration": 240,
+  "sampleRate": 48000,
+  "channels": 2,
+  "bitDepth": 24,
+  "baselineWavSha256": "546b3e389b8c7424f0dcc8baeac47fb6d4cadff55576911389e617538100c12a",
+  "revisedWavSha256": "9cc31370fc2c410a394c58814aaca561a1684c6cfa8a0b9bd9341ac94366b817",
+  "patchedWavSha256": "f935713d10ad86747094faab7944b427538ebc20afe9e3461c31e239ebfc5fa2",
+  "baselineMasterGain": 1.9004731748496868,
+  "revisedMasterGain": 1.9004731748496868,
+  "historicalGainReference": 1.9004731748496868,
+  "historicalBaselineHashMatchOnThisRun": true,
+  "fullPeakDbfs": -1.600000279326729,
+  "patchPeakDbfs": -3.7614958933246005,
+  "boundaries": {
+    "in": {
+      "patchEdgeDifference": 0.0,
+      "baselineSampleStep": 0.004903674125671387,
+      "patchedSampleStep": 0.004903674125671387
+    },
+    "out": {
+      "patchEdgeDifference": 0.0,
+      "baselineSampleStep": 0.0020530223846435547,
+      "patchedSampleStep": 0.0020530223846435547
+    }
+  },
+  "cpuOnly": true,
+  "note": "Fresh baseline and revised share the baseline exact gain; original limiter still runs. No private WAV input. Historical hash is an observation, not a cross-browser guarantee.",
+  "scope": "Local full-length CPU WebAudio reproduction; outside-window PCM checked relative to the newly rendered baseline. No cross-browser hash guarantee."
+}

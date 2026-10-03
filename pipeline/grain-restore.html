@@ -1,0 +1,10 @@
+<!doctype html><html><head><meta charset="utf-8"><script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js"}}</script></head><body><canvas id="out"></canvas><script type="module">
+import * as THREE from 'three';
+import {FINAL_FRAG,FS_VERT} from './src/post.js';
+const q=new URLSearchParams(location.search),w=Number(q.get('w')),h=Number(q.get('h')),picture=Number(q.get('picture')),y=Number(q.get('pad'));
+const canvas=document.getElementById('out'),renderer=new THREE.WebGLRenderer({canvas,antialias:false,preserveDrawingBuffer:true});renderer.setSize(w,h,false);renderer.outputColorSpace=THREE.LinearSRGBColorSpace;renderer.toneMapping=THREE.NoToneMapping;
+const pad=document.createElement('canvas');pad.width=w;pad.height=h;const ctx=pad.getContext('2d'),texture=new THREE.CanvasTexture(pad);texture.colorSpace=THREE.NoColorSpace;texture.minFilter=texture.magFilter=THREE.LinearFilter;texture.generateMipmaps=false;
+const uniforms={tA:{value:texture},tB:{value:texture},tTitles:{value:texture},uMix:{value:0},uFade:{value:0},uTitles:{value:0},uGrain:{value:0},uGrainSize:{value:1},uLetterbox:{value:2},uDither:{value:0},uFadeColor:{value:new THREE.Vector3(0,0,0)},uRes:{value:new THREE.Vector2(w,h)},uFrame:{value:0}};
+const material=new THREE.ShaderMaterial({vertexShader:FS_VERT,fragmentShader:FINAL_FRAG,uniforms,depthTest:false,depthWrite:false,blending:THREE.NoBlending}),scene=new THREE.Scene();scene.add(new THREE.Mesh(new THREE.PlaneGeometry(2,2),material));const camera=new THREE.Camera();
+window.restoreGrain=async ({url,grain,grainSize,frame})=>{const image=new Image();image.src=url;await image.decode();ctx.fillStyle='black';ctx.fillRect(0,0,w,h);ctx.drawImage(image,0,y,w,picture);texture.needsUpdate=true;uniforms.uGrain.value=grain;uniforms.uGrainSize.value=grainSize;uniforms.uFrame.value=frame;renderer.render(scene,camera);return canvas.toDataURL('image/png');};window.restoreReady=true;
+</script></body></html>

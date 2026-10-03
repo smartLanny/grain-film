@@ -1,0 +1,22 @@
+[
+  {
+    "test": "invalid-crop",
+    "returnCode": 1,
+    "seconds": 1.0034479589667171
+  },
+  {
+    "test": "valid-4k-hevc",
+    "returnCode": 0,
+    "seconds": 1.7667303748894483,
+    "video": {
+      "width": 3840,
+      "height": 1920,
+      "nb_frames": "3",
+      "duration": "0.100000",
+      "codec_name": "hevc",
+      "codec_tag_string": "hvc1",
+      "time_base": "1/15360",
+      "extradata_hash": "SHA256:a608147ef72de3d850a26276492e43506bc5b5b1de5c7f5c9ea3b65e6ba811eb"
+    }
+  }
+]

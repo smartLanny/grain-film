@@ -1,0 +1,14 @@
+{
+  "purpose": "Original GRAIN audio cue sheet/assets and frozen instrument/DSP/random helpers. Imports mapped locally; score adds exact masterGain stats only.",
+  "historicalGainReference": 1.9004731748496868,
+  "historicalWavSha256Reference": "546b3e389b8c7424f0dcc8baeac47fb6d4cadff55576911389e617538100c12a",
+  "crossBrowserHistoricalHashRequired": false,
+  "files": {
+    "assets.js": "9883e0c25b27d0363f8c731989b4f2ed79783122fdcc9dfb812bbc722158b94f",
+    "dsp.js": "37a43342249171fddc1d9e87bba88419917c8b373c2eb8ca13b4f08aeab7f95d",
+    "kit.js": "f0e6b5e4390d3e6c21789cccbf40fad58fe84f5f998ef1afb0ec0dec20bae71a",
+    "random.js": "ce7410f91069fc56c39e39541c14c72abb012dbc4dd6fde96c39d6e08254b91f",
+    "score.js": "76308d16f2ce8ac1849a04275275d94db5da9cbb08e36feb1f3e09f894e7e214",
+    "synth.js": "440ec16d991d853e7a06e0dfd32ebbaaf98e0a4fa21006b90fb99ac911ccf29e"
+  }
+}

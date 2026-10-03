@@ -1,0 +1,80 @@
+--- a/Sources/DLSSMedia/NativeMediaProcessor.swift
++++ b/Sources/DLSSMedia/NativeMediaProcessor.swift
+@@ -289,6 +289,44 @@
+     }
+   }
+ 
++  public func processPNGSequence(inputs: [URL], output: URL,
++    options: MediaProcessingOptions) async throws -> MediaProcessingResult {
++    try options.validate()
++    guard !busy, !inputs.isEmpty, options.frameGenerationWeights == nil,
++      options.superResolutionWeights == nil, options.dlssSuperResolutionModel == nil,
++      options.startFrame == 0, options.frameLimit == nil else {
++      throw MLXMediaError("PNG experiment requires one NR-only sequence")
++    }
++    busy = true
++    defer { busy = false }
++    let started = ContinuousClock.now
++    let io = try NativeImageIO()
++    let first = try await io.read(inputs[0])
++    let renderer = options.intensity > 0
++      ? try makeRenderer(width: first.width, height: first.height, options: options) : nil
++    let flow = options.temporal && renderer != nil
++      ? try NativeOpticalFlow(width: first.width, height: first.height, mode: options.motion) : nil
++    var resets = 0
++    for (index, input) in inputs.enumerated() {
++      try Task.checkCancellation()
++      let frame = index == 0 ? first : try await io.read(input)
++      guard frame.width == first.width, frame.height == first.height else {
++        throw MLXMediaError("PNG sequence dimensions changed")
++      }
++      let motion = try await flow?.prepare(frame, index: index, sceneCutThreshold: options.sceneCutThreshold)
++      if motion?.reset == true { resets += 1 }
++      let rendered = try await renderer?.renderVideoFrame(frame, motion: motion,
++        context: .init(streamID: 1, frameIndex: UInt64(index)),
++        processingScale: options.processingScale, temporal: options.temporal) ?? frame
++      try await io.write(rendered, to: output.appendingPathComponent(input.lastPathComponent))
++      if index == 0 || (index + 1) % 10 == 0 {
++        FileHandle.standardError.write(Data("PNG \(index + 1)/\(inputs.count), \(seconds(since: started)) s\n".utf8))
++      }
++    }
++    return MediaProcessingResult(output: output, inputFrames: inputs.count, outputFrames: inputs.count,
++      sceneResets: resets, elapsedSeconds: seconds(since: started), motionBackend: flow?.backend ?? "disabled")
++  }
++
+   private func makeRenderer(width: Int, height: Int, options: MediaProcessingOptions) throws -> MLXNeuralRenderingDeviceTemporalBackend? {
+     guard let model = options.renderingModel else { return nil }
+     return try MLXNeuralRenderingDeviceTemporalBackend(packageURL: model, executionMode: .metalFused,
+--- /dev/null
++++ b/Sources/mlxdlss/ProcessPNGSequenceCommand.swift
+@@ -0,0 +1,19 @@
++import DLSSMedia
++import Foundation
++
++enum ProcessPNGSequenceCommand {
++  static func run(arguments: [String]) async throws {
++    let parsed = try ProcessMediaCommand.parse(arguments: arguments, video: true)
++    let inputs = try FileManager.default.contentsOfDirectory(at: parsed.input,
++      includingPropertiesForKeys: nil).filter { $0.pathExtension.lowercased() == "png" }
++      .sorted { $0.lastPathComponent < $1.lastPathComponent }
++    guard !inputs.isEmpty else { throw CLIError.usage("PNG sequence contains no frames") }
++    guard !FileManager.default.fileExists(atPath: parsed.output.path) else {
++      throw CLIError.destinationExists(parsed.output)
++    }
++    try FileManager.default.createDirectory(at: parsed.output, withIntermediateDirectories: true)
++    let result = try await NativeMediaProcessor().processPNGSequence(inputs: inputs,
++      output: parsed.output, options: parsed.options)
++    try CLIOutput.writeEncodable(result)
++  }
++}
+--- a/Sources/mlxdlss/main.swift
++++ b/Sources/mlxdlss/main.swift
+@@ -62,6 +62,8 @@
+     switch command {
+     case "preview-stream":
+         try await PreviewStreamCommand.run(arguments: commandArguments)
++    case "process-png-sequence":
++        try await ProcessPNGSequenceCommand.run(arguments: commandArguments)
+     case "process-video":
+         try await ProcessMediaCommand.run(arguments: commandArguments, video: true)
+     case "process-image":

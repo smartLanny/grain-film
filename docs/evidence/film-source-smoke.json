@@ -1,0 +1,64 @@
+{
+  "pass": true,
+  "node": "v22.23.1",
+  "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+  "dependencies": {
+    "three": "0.186.1",
+    "esbuild": "0.28.2",
+    "puppeteer-core": "25.12.0",
+    "ws": "8.22.0"
+  },
+  "gpuRenderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+  "renderCommand": "node tools/render.mjs --start 65 --end 65.5 --scale 2 --samples 8 --crop 3840:1920:0:120 --encoder hevc_videotoolbox --quality 75 --out out/smoke-4k-18x9.mp4 --verbose",
+  "shutterSamples": 8,
+  "audioRmsDbfs": -19.11145981920996,
+  "actualFullShortFileDecodePassed": true,
+  "softwareEncodingAllowed": false,
+  "videoSha256": "d97911cc671fed1b6f1f00d0fe92dccd98ce354083e991a996711676cedfec1c",
+  "verificationScope": "15 frames on M5 Max; no full movie rerender or cross-machine pixel identity claim",
+  "sourceChanges": "doc path and attribution comments, four unused GLSL functions deleted; actual called film algorithms retained",
+  "shaderCleanupComparison": {
+    "comparisonCompleted": true,
+    "byteExact": false,
+    "frame": 1950,
+    "time": 65,
+    "scale": 2,
+    "shutterSamples": 8,
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M5 Max, Unspecified Version)",
+    "pixels": 8294400,
+    "changedPixels": 108,
+    "maxChannelDifference255": 1,
+    "rgbaRmse255": 0.0018042195912175807,
+    "removedOnlyUnusedHelpers": [
+      "noised",
+      "erosionFbm",
+      "pcg3",
+      "hashu33"
+    ],
+    "usedNoiseAndGrainExpressionsChanged": false,
+    "causeOfSmallDifferences": "not determined; no cross-context pixel identity guarantee",
+    "pageErrors": 0,
+    "gpuReleased": true,
+    "sourceOnlyAdditionalChangeAfterCapture": "author/notice comments"
+  },
+  "serverBoundary": "real HTTP index=200, encoded parent / same-prefix sibling=403",
+  "video": {
+    "codec_name": "hevc",
+    "codec_tag_string": "hvc1",
+    "width": 3840,
+    "height": 1920,
+    "r_frame_rate": "30/1",
+    "nb_frames": "15",
+    "duration": "0.500000",
+    "color_range": "tv",
+    "color_space": "bt709",
+    "color_transfer": "bt709",
+    "color_primaries": "bt709"
+  },
+  "audio": {
+    "codec_name": "aac",
+    "sample_rate": "48000",
+    "channels": 2,
+    "duration": "0.512000"
+  }
+}
