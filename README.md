@@ -1,4 +1,21 @@
-# 一粒 / GRAIN
+# 程序化 3D 动画库 / Procedural 3D Films
+
+用 Three.js 构建画面，用 WebAudio 与程序合成音乐、环境声和音效。这个库从《一粒 / GRAIN》开始，继续收录《梦蝶 / The Dream of the Butterfly》，保存影片工程与实际制作经验。
+
+| 影片 | 工程入口 | 内容 |
+| --- | --- | --- |
+| **一粒 / GRAIN** | 根目录，见下文 | 山谷、冰川、石块、河流、种子与树；4K / 18:9 导出与可选 MLX-DLSS 实践 |
+| **梦蝶 / Butterfly** | [films/butterfly](films/butterfly/README.md) | 水墨人间与彩色蝶境；程序化花朵、合成声音、庄周梦蝶改编 |
+
+根目录的安装、运行和构建命令仍操作 GRAIN，保持原有使用方式。运行《梦蝶》先进入 `films/butterfly/`，两部影片分别安装依赖。源码、文档与封面保留在库内，成片、WAV、依赖目录、构建输出、缓存与模型权重不随仓库发布。
+
+## 梦蝶 / The Dream of the Butterfly
+
+四分钟、18:9 的程序化动画，历史批准成片为 3840×1920 / 30 fps。画面使用 Three.js，配乐与音效由代码合成，创作与修订使用 AI 编程协作。
+
+从 [梦蝶运行与导出](films/butterfly/README.md)、[制作经验](films/butterfly/docs/lessons.md) 和 [发布文案及齐物论出处](films/butterfly/docs/发布文案.txt) 开始。两版封面是参考成片重新构图的 AI 生成图；本片最终未使用 DLSS。
+
+## 一粒 / GRAIN
 
 一部完全由代码生成的 4 分钟 3D 动画，以及把它做成 **4K、18:9 成片**的完整实践：场景建模、镜头、材质、程序配乐、融雪流水修订、MLX-DLSS 局部增强和导出验收。
 

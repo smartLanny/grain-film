@@ -11,11 +11,11 @@
 | [ws](https://github.com/websockets/ws) | 离线图像/音频传输 | MIT，见 [全文](licenses/ws-MIT.txt) |
 | [Puppeteer](https://github.com/puppeteer/puppeteer) | 本地浏览器自动渲染 | Apache-2.0；通过 npm 安装，许可随包保留 |
 
-依赖及锁定版本见 package-lock.json。浏览器与 FFmpeg 是外部工具，不随仓库分发；具体许可依用户安装的发行版。
+上述依赖同时用于根目录 GRAIN 和 `films/butterfly/`。依赖及锁定版本分别见各工程的 package-lock.json。浏览器与 FFmpeg 是外部工具，不随仓库分发；具体许可依用户安装的发行版。
 
 ## 程序噪声
 
-`src/lib/glsl/noise.js` 中 simplex noise 及其 `src/lib/noise.js` CPU 镜像基于 Ashima Arts / Stefan Gustavson 的实现。MIT 署名与许可全文见 [webgl-noise-MIT.txt](licenses/webgl-noise-MIT.txt)，来源为 [作者仓库](https://github.com/stegu/webgl-noise)。
+两部影片各自的 `src/lib/glsl/noise.js` 中 simplex noise 及其 `src/lib/noise.js` CPU 镜像基于 Ashima Arts / Stefan Gustavson 的实现。MIT 署名与许可全文见 [webgl-noise-MIT.txt](licenses/webgl-noise-MIT.txt)，来源为 [作者仓库](https://github.com/stegu/webgl-noise)。
 
 ### Hash without Sine
 
@@ -31,9 +31,13 @@
 
 ## ACES fitted tone mapping
 
-`src/post.js` 的矩阵与 RRT/ODT 拟合适配自 Stephen Hill 的 [BakingLab/ACES.hlsl](https://github.com/TheRealMJP/BakingLab/blob/master/BakingLab/ACES.hlsl)。该文件明确标 MIT，并将拟合与实现归功于 Stephen Hill。仓库许可署 `Copyright (c) 2016 MJP`；全文见 [BakingLab-MIT.txt](licenses/BakingLab-MIT.txt)。这不是 Narkowicz 的另一种五系数近似。
+两部影片各自 `src/post.js` 的矩阵与 RRT/ODT 拟合适配自 Stephen Hill 的 [BakingLab/ACES.hlsl](https://github.com/TheRealMJP/BakingLab/blob/master/BakingLab/ACES.hlsl)。该文件明确标 MIT，并将拟合与实现归功于 Stephen Hill。仓库许可署 `Copyright (c) 2016 MJP`；全文见 [BakingLab-MIT.txt](licenses/BakingLab-MIT.txt)。这不是 Narkowicz 的另一种五系数近似。
 
-## 可选 MLX-DLSS
+## Butterfly 的同库复用与图文
+
+`films/butterfly/` 复用本库 GRAIN 的程序化景观、噪声与渲染基础设施，沿用上述第三方归属与许可。该工程的单文件 HTML 构建会带上根许可、licenses 内全文及本声明。封面为参考成片视觉重新构图的 AI 生成图，不是电影截图；制作由人类确定方向与审片，并使用 AI 编程协作。引用的《庄子·齐物论》古籍文字不是本项目原创，出处及改编说明见影片发布文案。
+
+## 可选 MLX-DLSS（GRAIN）
 
 [MLX-DLSS](https://github.com/iamwavecut/MLX-DLSS) 是独立的 Apache-2.0 项目。本仓库不包含其完整源码、模型图、提取器、模型权重或 NVIDIA 二进制。PNG 序列薄适配补丁依其 Apache-2.0 条件分发，具体版本、许可及必要署名与补丁一起保存于 pipeline。
 
